@@ -1,6 +1,7 @@
 package com.tx.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by Administrator on 2018/4/29.
@@ -15,7 +16,60 @@ public class Order {
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name="task_detail_id",referencedColumnName = "id")
+    private TaskDetail taskDetail;
+
     //订单成交价格
     private long realAmount;
 
+    private Timestamp addTime;
+
+    public Order(User user, TaskDetail taskDetail, long realAmount, Timestamp addTime) {
+        this.user = user;
+        this.taskDetail = taskDetail;
+        this.realAmount = realAmount;
+        this.addTime = addTime;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public TaskDetail getTaskDetail() {
+        return taskDetail;
+    }
+
+    public void setTaskDetail(TaskDetail taskDetail) {
+        this.taskDetail = taskDetail;
+    }
+
+    public long getRealAmount() {
+        return realAmount;
+    }
+
+    public void setRealAmount(long realAmount) {
+        this.realAmount = realAmount;
+    }
+
+    public Timestamp getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Timestamp addTime) {
+        this.addTime = addTime;
+    }
 }

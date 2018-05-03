@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRespository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByNameStartsWith(@Param("name") String name);
 
 }
