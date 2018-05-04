@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * Created by cf on 2018/5/2.
  */
@@ -35,7 +39,20 @@ public class UserService {
         }
     }
 
-    public static void main(String[] args){
-        new UserService().getUserLogin("021L5gcH0xLoNh2FyyaH0eeWbH0L5gck");
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(5);
+        list.add(1);
+        list.add(7);
+        list.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1-o2;
+            }
+        });
+        for (Integer i : list) {
+            System.out.print(i);
+        }
     }
 }

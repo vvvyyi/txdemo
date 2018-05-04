@@ -25,12 +25,15 @@ public class Order {
     private long realAmount;
 
     private Timestamp addTime;
+    private OrderStatus orderStatus;
+
 
     public Order(User user, TaskDetail taskDetail, long realAmount, Timestamp addTime) {
         this.user = user;
         this.taskDetail = taskDetail;
         this.realAmount = realAmount;
         this.addTime = addTime;
+        this.orderStatus = OrderStatus.NORMAL;
     }
 
     public long getId() {
@@ -71,5 +74,16 @@ public class Order {
 
     public void setAddTime(Timestamp addTime) {
         this.addTime = addTime;
+    }
+}
+enum OrderStatus{
+    NORMAL("未处理"),PROCESSIOG("处理中"),FINISH("已完成"),INVALID("失效");
+    private String title;
+    OrderStatus(String title){
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

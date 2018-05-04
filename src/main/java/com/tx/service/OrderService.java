@@ -1,6 +1,7 @@
 package com.tx.service;
 
 import com.tx.model.Order;
+import com.tx.model.TaskDetail;
 import com.tx.model.User;
 import com.tx.repository.OrderRepository;
 import com.tx.repository.TaskDetailRepository;
@@ -25,8 +26,9 @@ public class OrderService {
     UserRepository userRepository;
 
     @Transactional
-    public void addOrder(User user,Long amount, Long taskId){
-        Order order = new Order(user,taskDetailRepository.getOne(taskId),amount, new Timestamp(Calendar.getInstance().getTimeInMillis()));
+    public void addOrder(User user, Long amount, Long taskId) {
+        TaskDetail taskDetail = taskDetailRepository.getOne(taskId);
+        Order order = new Order(user, taskDetail, amount, new Timestamp(Calendar.getInstance().getTimeInMillis()));
         orderRepository.save(order);
     }
 }
