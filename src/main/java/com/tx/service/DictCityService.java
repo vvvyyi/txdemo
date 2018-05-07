@@ -47,38 +47,37 @@ public class DictCityService {
             e.printStackTrace();
         }
     }
+    class Result{
+        int code;
+        DictCity[] data;
+        String msg;
 
-}
-class Result{
-    int code;
-    DictCity[] data;
-    String msg;
+        public int getCode() {
+            return code;
+        }
 
-    public int getCode() {
-        return code;
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public DictCity[] getData() {
+            return data;
+        }
+
+        public void setData(DictCity[] data) {
+            this.data = data;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+
+        public Result() {
+        }
+
     }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public DictCity[] getData() {
-        return data;
-    }
-
-    public void setData(DictCity[] data) {
-        this.data = data;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Result() {
-    }
-
 }

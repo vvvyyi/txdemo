@@ -1,4 +1,4 @@
-package com.tx.service;
+package com.tx.service.result;
 
 /**
  * Created by Administrator on 2018/5/5.
